@@ -13,6 +13,7 @@ function KombuchaList(props) {
           brand={kombucha.brand}
           price={kombucha.price}
           flavor={kombucha.flavor}
+          quantity={kombucha.quantity}
           id={kombucha.id}
           key ={kombucha.id}/>
       )}

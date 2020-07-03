@@ -16,7 +16,7 @@ body {
   text-align: center;
 }
 
-#name, #brand, #price, #flavor {
+#name, #brand, #price, #flavor, #quantity{
   width:60%;
   height:56px;
   padding: 0px 16px;
@@ -37,7 +37,7 @@ body {
   text-align: center;
 }
 
-#name:hover, #brand:hover, #price:hover, #flavor:hover {
+#name:hover, #brand:hover, #price:hover, #flavor:hover, #quantity:hover{
 background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 }

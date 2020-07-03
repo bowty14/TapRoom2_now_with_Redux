@@ -1,0 +1,31 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+
+function KombuchaDetail(props) {
+  const { kombucha, onClickingDelete, onClickingBuy, onClickingRestock } = props;
+  return (
+    <React.Fragment>
+      <h1>Kombucha Details</h1>
+      <h3>{kombucha.name}</h3> - <h3>{kombucha.brand}</h3>
+      <h3>{kombucha.price}</h3>
+      <h3>{kombucha.flavor}</h3> -  <h3>{kombucha.quantity}</h3>
+      <button onClick={props.onClickingEdit}>Update Kombucha</button>
+      <button onClick={() => onClickingDelete(kombucha.id)}>Delete Kombucha</button>
+      <button onClick={() => onClickingBuy(kombucha.id)}>Pour a pint</button>
+      <button onClick={() => onClickingRestock(kombucha.id)}>Restock Kombucha</button>
+      <hr />
+    </React.Fragment>
+  );
+}
+
+
+KombuchaDetail.propTypes = {
+  kombucha: PropTypes.object,
+  onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func,
+  onClickingBuy: PropTypes.func,
+  onClickingRestock: PropTypes.func
+};
+
+export default KombuchaDetail;
