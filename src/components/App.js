@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import NewKombuchaForm from './NewKombuchaForm';
+import TapRoom from './tapRoom'
 // import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Header />
       </div>
       <div className='newDrink'>
-        <NewKombuchaForm />
+        <TapRoom />
       </div>
     </React.Fragment>
   );
