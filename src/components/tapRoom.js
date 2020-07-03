@@ -30,5 +30,14 @@ class TapRoom extends React.Component {
     }
   }
 
+  handleAddingNewKombuchaToList = (newKombucha) => {
+    const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
+    this.state({
+      masterKombuchaList: newMasterKombuchaList,
+      formVisibleOnPage: false
+    });
+  }
   
+  
+
 }
