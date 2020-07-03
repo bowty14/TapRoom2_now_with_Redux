@@ -15,7 +15,7 @@ function NewKombuchaForm(props) {
     <React.Fragment>
       <ReusableForm
         formSubmissionHandler={handleNewKumbuchaFormSubmission}
-        buttonText='Add to tap!' />
+          buttonText='Add to tap!' />
     </React.Fragment>
   );
 }
