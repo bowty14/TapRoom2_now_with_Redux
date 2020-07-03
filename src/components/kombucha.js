@@ -8,6 +8,7 @@ function Kombucha(props) {
       <div onClick = {() => props.whenKombuchaClicked(props.id)}>
         <h3>{props.name} - {props.brand}</h3>
         <h3>{props.price}</h3>
+        <h3>{props.quantity}</h3>     
         <h3><em>{props.flavor}</em></h3>
         <hr/>
       </div>
@@ -20,6 +21,7 @@ Kombucha.propTypes = {
   brand: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   flavor: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenKombuchaClicked: PropTypes.func
 };

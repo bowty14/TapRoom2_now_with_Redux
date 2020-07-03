@@ -75,7 +75,7 @@ class TapRoom extends React.Component {
 
   handleTappingAKeg = (id) => {
     const restockKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
-    restockKombucha.quantity += 1;
+    restockKombucha.quantity += 124;
     const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(restockKombucha);
     this.setState({
       masterKombuchaList: editedMasterKombuchaList

@@ -29,9 +29,10 @@ function ReusableForm(props) {
           placeholder='What flavor is this?' className='field' />
         <input
           id='quantity'
-          type='text'
+          type='number'
+          min ='0'
           name='quantity'
-          placeholder='Kegs have 124 pints'/>
+          placeholder='Kegs have 124 pints' />
         <br/>
         <button type='submit' id='reuButton'>{props.buttonText}</button>
       
