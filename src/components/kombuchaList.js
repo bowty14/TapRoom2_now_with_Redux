@@ -7,7 +7,7 @@ function KombuchaList(props) {
     <React.Fragment>
       {props.kombuchaList.map((kombucha) =>
         <Kombucha
-        whenKombuchaClicked={props.onKombuchaSelection}
+        whenKombuchaClicked = {props.onKombuchaSelection}
         name={kombucha.name}
         brand={kombucha.brand}
         price={kombucha.price}

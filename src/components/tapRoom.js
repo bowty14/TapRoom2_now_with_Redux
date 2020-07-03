@@ -40,7 +40,7 @@ class TapRoom extends React.Component {
   
   handleChangingSelectedKombucha = (id) => {
     const selectedKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
-    this.state({ selectedKombucha: selectedKombucha });
+    this.setState({ selectedKombucha: selectedKombucha });
   }
 
   handleDeletingKombucha = (id) => {
@@ -105,8 +105,8 @@ class TapRoom extends React.Component {
       buttonText = 'Return to taproom';
     } else {
       currentlyVisibleState = <KombuchaList
-        kombuchaList={this.state. masterKombuchaList}
-        onKombuchaSelection={this.state.handleChangingSelectedKombucha} />
+        kombuchaList={this.state.masterKombuchaList}
+        onKombuchaSelection={this.handleChangingSelectedKombucha} />
       buttonText = 'Add to tap'
     }
     return (

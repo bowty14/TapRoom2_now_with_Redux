@@ -7,9 +7,11 @@ function KombuchaDetail(props) {
   return (
     <React.Fragment>
       <h1>Kombucha Details</h1>
-      <h3>{kombucha.name}</h3> - <h3>{kombucha.brand}</h3>
-      <h3>{kombucha.price}</h3>
-      <h3>{kombucha.flavor}</h3> -  <h3>{kombucha.quantity}</h3>
+      <h3>Drink Name: {kombucha.name}</h3>
+      <h3>Brand Name: {kombucha.brand}</h3>
+      <h3>Price per pint ${kombucha.price}</h3>
+      <h3>Kombucha flavor: {kombucha.flavor}</h3>
+      <h3>Pints left in keg: {kombucha.quantity}</h3>
       <button onClick={props.onClickingEdit}>Update Kombucha</button>
       <button onClick={() => onClickingDelete(kombucha.id)}>Delete Kombucha</button>
       <button onClick={() => onClickingBuy(kombucha.id)}>Pour a pint</button>
