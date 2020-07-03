@@ -32,7 +32,7 @@ class TapRoom extends React.Component {
 
   handleAddingNewKombuchaToList = (newKombucha) => {
     const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
-    this.state({
+    this.setState({
       masterKombuchaList: newMasterKombuchaList,
       formVisibleOnPage: false
     });
@@ -75,7 +75,7 @@ class TapRoom extends React.Component {
 
   handleTappingAKeg = (id) => {
     const restockKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
-    purchasedPint.quantity -= 1;
+    restockKombucha.quantity += 1;
     const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(restockKombucha);
     this.setState({
       masterKombuchaList: editedMasterKombuchaList
@@ -86,9 +86,36 @@ class TapRoom extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.)
+    if (this.state.editing) {
+      currentlyVisibleState = <EditKombuchaForm
+        kombucha={this.state.selectedKombucha}
+        onEditKombucha={this.handleEditingKombuchaInList} />
+      buttonText = 'Return to tap list';
+    } else if (this.state.selectedKombucha !== null) {
+      currentlyVisibleState = <KombuchaDetail
+        kombucha={this.state.selectedKombucha}
+        onClickingDelete={this.handleDeletingKombucha}
+        onClickingEdit={this.handleEditClick}
+        onClickingBuy={this.handleBuyingAPint}
+        onClickingRestock={this.handleTappingAKeg} />
+      buttonText = 'Return to taproom';
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewKombuchaForm
+        onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
+      buttonText = 'Return to taproom';
+    } else {
+      currentlyVisibleState = <KombuchaList
+        kombuchaList={this.state. masterKombuchaList}
+        onKombuchaSelection={this.state.handleChangingSelectedKombucha} />
+      buttonText = 'Add to tap'
+    }
+    return (
+      <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    );
   }
-
 }
 
 export default TapRoom;
