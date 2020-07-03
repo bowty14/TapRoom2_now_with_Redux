@@ -30,7 +30,6 @@ function ReusableForm(props) {
         <input
           id='quantity'
           type='number'
-          min ='0'
           name='quantity'
           placeholder='Kegs have 124 pints' />
         <br/>
