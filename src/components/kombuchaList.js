@@ -1,5 +1,5 @@
 import React from 'react';
-import Kombucha from './Kombucha';
+import Kombucha from './kombucha';
 import PropTypes from 'prop-types';
 
 function KombuchaList(props) {
