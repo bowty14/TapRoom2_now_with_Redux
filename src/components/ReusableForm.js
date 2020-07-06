@@ -11,7 +11,7 @@ function ReusableForm(props) {
           id="name"
           type='text'
           name='name'
-          placeholder='Please a name for the kombucha' className='field'/>
+          placeholder='Please enter a name for the kombucha' className='field'/>
         <input 
           id="brand"
           type='text'
@@ -30,6 +30,7 @@ function ReusableForm(props) {
         <input
           id='quantity'
           type='number'
+          min= '1'
           name='quantity'
           placeholder='Kegs have 124 pints' />
         <br/>
