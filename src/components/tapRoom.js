@@ -11,7 +11,6 @@ class TapRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
       selectedKombucha: null,
       editing: false
     };
@@ -25,9 +24,11 @@ class TapRoom extends React.Component {
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
     }
   }
 
@@ -44,7 +45,10 @@ class TapRoom extends React.Component {
       quantity: quantity,
     }
     dispatch(action);
-    this.setState({ formVisibleOnPage: false})
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
   
   handleChangingSelectedKombucha = (id) => {
@@ -126,7 +130,7 @@ class TapRoom extends React.Component {
         onClickingBuy={this.handleBuyingAPint}
         onClickingRestock={this.handleTappingAKeg} />
       buttonText = 'Return to taproom';
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewKombuchaForm
         onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
       buttonText = 'Return to taproom';
@@ -151,7 +155,8 @@ TapRoom.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterKombuchaList: state
+    masterKombuchaList: state.masterKombuchaList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 
