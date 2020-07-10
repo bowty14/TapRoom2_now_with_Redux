@@ -12,5 +12,16 @@ describe('TapRoom actions', () => {
       type: 'TOGGLE_FORM'
     });
   });
+  it('addKombucha should create a ADDKOMBUCHA action', () => {
+    expect(actions.addKombucha()).toEqual({
+      type: 'ADD_KOMBUCHA',
+      name: 'Tropic Thunder',
+      brand: 'Kombucha market',
+      price: 6,
+      flavor: 'Pineapple',
+      quantity: 124,
+      id: 1
+    });
+  });
   
 });
