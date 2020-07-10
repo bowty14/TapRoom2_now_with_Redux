@@ -67,17 +67,15 @@ class TapRoom extends React.Component {
     });
   }
 
-  handleBuyingAPint = (id) => {
-    const purchasedPint = this.state.masterKombuchaList[id];
-    if (purchasedPint.quantity === 0) {
-      return purchasedPint.quantity;
+  handleBuyingAPint = (kombuchaToPour) => {
+    if (kombuchaToPour.quantity === 0) {
+      return kombuchaToPour.quantity;
     } else {
-      purchasedPint.quantity -= 1;
+      const { dispatch } = this.props;
+      const action = a.pourPint(kombuchaToPour);
+      dispatch(action);
+      this.setState({ selectedKombucha: null })
     }
-    const editedMasterKombuchaList = this.state.masterKombuchaList[id]
-    this.setState({
-      masterKombuchaList: editedMasterKombuchaList
-    });
   }
 
   handleTappingAKeg = (id) => {
