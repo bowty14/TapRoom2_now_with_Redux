@@ -78,13 +78,11 @@ class TapRoom extends React.Component {
     }
   }
 
-  handleTappingAKeg = (id) => {
-    const restockKombucha = this.state.masterKombuchaList[id];
-    restockKombucha.quantity = 124;
-    const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(restockKombucha);
-    this.setState({
-      masterKombuchaList: editedMasterKombuchaList
-    });
+  handleTappingAKeg = (kegToTap) => {
+    const { dispatch } = this.props;
+    const action = a.tapKeg(kegToTap);
+    dispatch(action);
+    this.setState({selectedKombucha: null})
   }
 
   render() {

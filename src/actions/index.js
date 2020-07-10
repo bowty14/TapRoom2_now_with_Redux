@@ -28,7 +28,20 @@ export const pourPint = (kombucha) => {
     brand: brand,
     price: price,
     flavor: flavor,
-    quantity: quantity,
+    quantity: quantity -1,
     id: id
   }
 }
+export const tapKeg = (kombucha) => {
+  const { name, brand, price, flavor, quantity, id } = kombucha;
+  return {
+    type: 'TAP_KEG',
+    name: name,
+    brand: brand,
+    price: price,
+    flavor: flavor,
+    quantity: 124,
+    id: id
+  }
+}
+
