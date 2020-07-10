@@ -1,5 +1,8 @@
 body {
-  background-color: rebeccapurple;
+  background-image: linear-gradient(#b004fc,#2278cf,lightsteelblue);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -8,12 +11,55 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .header {
+  border: solid 3px black;
   text-align: center;
   color: whitesmoke;
+  margin-top: 2%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  float: center;
+  color: inherit;
+  background-image: linear-gradient(deepskyblue, tomato);
+}
+footer{
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  color:black;
+  background-color:#f5cb5c;
+}
+.drinkHeader {
+  border: solid 10px black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-image: linear-gradient(#0f0793,#f8fefe,#06f9f8);
 }
 
 .newDrink {
   text-align: center;
+}
+.drinks{
+  border: solid 3px black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-image: linear-gradient(#0f0793,#f8fefe,#06f9f8);
+}
+.drinks:hover {
+  background-color: transparent;
+  opacity: 80%;
+}
+.drinkDetails{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-image: linear-gradient(#0f0793, #06f9f8,#00d4ff);
 }
 
 #name, #brand, #price, #flavor, #quantity{
@@ -26,19 +72,18 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  background-color: transparent;
+  background-color: white;
   color: #282828;
   outline: none;
   box-shadow: 0px 4px 20px 0px transparent;
   transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out;
   -webkit-appearance: none;
-  background-color: transparent;
   opacity: 80%;
   text-align: center;
 }
 
 #name:hover, #brand:hover, #price:hover, #flavor:hover, #quantity:hover{
-background-color: white;
+background-color: lightsteelblue;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 }
  .reForm.focussed input{
@@ -50,7 +95,30 @@ background-color: white;
   color: #28cc70;
 }
 #reuButton {
+  border: solid 2px black;
+  background-color: lightseagreen;
   margin-top: 1%;
+  text-align: center;
+}
+#reuButton:hover {
+  background-color: transparent;
+}
+.allButtons {
+  border: solid 2px black;
+  background-color: lightseagreen;
+  margin-top: 1%;
+  text-align: center;
+}
+.allButtons:hover {
+  background-color: transparent;
+}
+.controlButtons {
+  border: solid 2px black;
+  background-color:lightseagreen;
+  text-align: center;
+}
+.controlButtons:hover {
+  background-color: transparent;
 }
 
 

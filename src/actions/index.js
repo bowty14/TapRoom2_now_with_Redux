@@ -28,7 +28,7 @@ export const pourPint = (kombucha) => {
     brand: brand,
     price: price,
     flavor: flavor,
-    quantity: quantity -1,
+    quantity: quantity,
     id: id
   }
 }
@@ -40,7 +40,7 @@ export const tapKeg = (kombucha) => {
     brand: brand,
     price: price,
     flavor: flavor,
-    quantity: 124,
+    quantity:quantity,
     id: id
   }
 }
