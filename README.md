@@ -51,6 +51,7 @@ You can pour a pint passed 0, was not able to figure this out yet.
 * _JSX_
 * _CSS_
 * _React_
+* _Redux_
 
 
 ### License
