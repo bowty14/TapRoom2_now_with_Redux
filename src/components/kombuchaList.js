@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function KombuchaList(props) {
   return (
     <React.Fragment>
-      {props.kombuchaList.map((kombucha) =>
+      {Object.values(props.kombuchaList).map((kombucha) =>
         <Kombucha
         whenKombuchaClicked = {props.onKombuchaSelection}
         name={kombucha.name}
