@@ -12,8 +12,8 @@ describe('TapRoom actions', () => {
       type: 'TOGGLE_FORM'
     });
   });
-  it('addKombucha should create a ADDKOMBUCHA action', () => {
-    expect(actions.addKombucha()).toEqual({
+  it('addKombucha should create a ADD_KOMBUCHA action', () => {
+    expect(actions.addKombucha({name: 'Tropic Thunder',brand: 'Kombucha market', price: 6, flavor:'Pineapple', quantity: 124, id: 1})).toEqual({
       type: 'ADD_KOMBUCHA',
       name: 'Tropic Thunder',
       brand: 'Kombucha market',
@@ -23,5 +23,5 @@ describe('TapRoom actions', () => {
       id: 1
     });
   });
-  
+
 });

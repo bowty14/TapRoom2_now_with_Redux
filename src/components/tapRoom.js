@@ -5,6 +5,7 @@ import KombuchaDetail from './KombuchaDetail';
 import EditKombuchaForm from './EditKombuchaForm';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import * as a from './../actions';
 
 class TapRoom extends React.Component {
 
@@ -25,29 +26,16 @@ class TapRoom extends React.Component {
       });
     } else {
       const { dispatch } = this.props;
-      const action = {
-        type: 'TOGGLE_FORM'
-      }
+      const action = a.toggleForm();
       dispatch(action);
     }
   }
 
   handleAddingNewKombuchaToList = (newKombucha) => {
     const { dispatch } = this.props;
-    const { id, name, brand, price, flavor, quantity } = newKombucha;
-    const action = {
-      type: 'ADD_KOMBUCHA',
-      id: id,
-      name: name,
-      brand: brand,
-      price: price,
-      flavor: flavor,
-      quantity: quantity,
-    }
+    const action = a.addKombucha(newKombucha);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
   
@@ -58,10 +46,7 @@ class TapRoom extends React.Component {
 
   handleDeletingKombucha = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_KOMBUCHA',
-      id: id
-    }
+    const action = a.deleteKombucha(id)
     dispatch(action);
     this.setState({
       selectedKombucha: null
@@ -74,16 +59,7 @@ class TapRoom extends React.Component {
 
   handleEditingKombuchaInList = (kombuchaToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, brand, price, flavor, quantity } = kombuchaToEdit;
-    const action = {
-      type: 'ADD_KOMBUCHA',
-      id: id,
-      name: name,
-      brand: brand,
-      price: price,
-      flavor: flavor,
-      quantity: quantity,
-    }
+    const action = a.addKombucha(kombuchaToEdit);
     dispatch(action);
     this.setState({
       editing: false,
@@ -98,7 +74,7 @@ class TapRoom extends React.Component {
     } else {
       purchasedPint.quantity -= 1;
     }
-    const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(purchasedPint);
+    const editedMasterKombuchaList = this.state.masterKombuchaList[id]
     this.setState({
       masterKombuchaList: editedMasterKombuchaList
     });

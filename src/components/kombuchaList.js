@@ -21,7 +21,7 @@ function KombuchaList(props) {
 }
 
 KombuchaList.propTypes = {
-  kombuchaList: PropTypes.array,
+  kombuchaList: PropTypes.object,
   onKombuchaSelection: PropTypes.func
 };
 
