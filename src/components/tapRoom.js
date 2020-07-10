@@ -3,6 +3,8 @@ import NewKombuchaForm from './NewKombuchaForm';
 import KombuchaList from './kombuchaList';
 import KombuchaDetail from './KombuchaDetail';
 import EditKombuchaForm from './EditKombuchaForm';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class TapRoom extends React.Component {
 
@@ -10,7 +12,6 @@ class TapRoom extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKombuchaList: [],
       selectedKombucha: null,
       editing: false
     };
@@ -31,22 +32,34 @@ class TapRoom extends React.Component {
   }
 
   handleAddingNewKombuchaToList = (newKombucha) => {
-    const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
-    this.setState({
-      masterKombuchaList: newMasterKombuchaList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const { id, name, brand, price, flavor, quantity } = newKombucha;
+    const action = {
+      type: 'ADD_KOMBUCHA',
+      id: id,
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      quantity: quantity,
+    }
+    dispatch(action);
+    this.setState({ formVisibleOnPage: false})
   }
   
   handleChangingSelectedKombucha = (id) => {
-    const selectedKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    const selectedKombucha = this.props.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
     this.setState({ selectedKombucha: selectedKombucha });
   }
 
   handleDeletingKombucha = (id) => {
-    const newMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== id);
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KOMBUCHA',
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterKombuchaList: newMasterKombuchaList,
       selectedKombucha: null
     });
   }
@@ -56,9 +69,19 @@ class TapRoom extends React.Component {
   }
 
   handleEditingKombuchaInList = (kombuchaToEdit) => {
-    const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(kombuchaToEdit);
+    const { dispatch } = this.props;
+    const { id, name, brand, price, flavor, quantity } = kombuchaToEdit;
+    const action = {
+      type: 'ADD_KOMBUCHA',
+      id: id,
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      quantity: quantity,
+    }
+    dispatch(action);
     this.setState({
-      masterKombuchaList: editedMasterKombuchaList,
       editing: false,
       selectedKombucha: null
     });
@@ -109,7 +132,7 @@ class TapRoom extends React.Component {
       buttonText = 'Return to taproom';
     } else {
       currentlyVisibleState = <KombuchaList
-        kombuchaList={this.state.masterKombuchaList}
+        kombuchaList={this.props.masterKombuchaList}
         onKombuchaSelection={this.handleChangingSelectedKombucha} />
       buttonText = 'Add to tap'
     }
@@ -120,6 +143,18 @@ class TapRoom extends React.Component {
       </React.Fragment>
     );
   }
+};
+
+TapRoom.propTypes = {
+  masterKombuchaList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterKombuchaList: state
+  }
 }
+
+TapRoom = connect(mapStateToProps)(TapRoom);
 
 export default TapRoom;
