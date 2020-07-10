@@ -32,5 +32,16 @@ export default (state = {}, action) => {
           id: id
         }
       })
+    case c.TAP_KEG:
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          brand: brand,
+          price: price,
+          flavor: flavor,
+          quantity: 124,
+          id: id
+        }
+      })
   }
 };

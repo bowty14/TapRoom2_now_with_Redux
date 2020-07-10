@@ -10,6 +10,15 @@ const initialState = {
       flavor: 'Pineapple',
       quantity: 124,
       id: '1'
+    },
+
+    2: {
+      name: 'Thunder Storm',
+      brand: 'Kombucha Market',
+      price: '8',
+      flavor: 'BlackBerry',
+      quantity: 124,
+      id: '2'
     }
   }
 }
