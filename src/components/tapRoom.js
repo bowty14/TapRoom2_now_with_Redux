@@ -48,7 +48,7 @@ class TapRoom extends React.Component {
   }
   
   handleChangingSelectedKombucha = (id) => {
-    const selectedKombucha = this.props.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    const selectedKombucha = this.props.masterKombuchaList[id];
     this.setState({ selectedKombucha: selectedKombucha });
   }
 
@@ -88,7 +88,7 @@ class TapRoom extends React.Component {
   }
 
   handleBuyingAPint = (id) => {
-    const purchasedPint = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    const purchasedPint = this.state.masterKombuchaList[id];
     if (purchasedPint.quantity === 0) {
       return purchasedPint.quantity;
     } else {
@@ -101,7 +101,7 @@ class TapRoom extends React.Component {
   }
 
   handleTappingAKeg = (id) => {
-    const restockKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    const restockKombucha = this.state.masterKombuchaList[id];
     restockKombucha.quantity = 124;
     const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(restockKombucha);
     this.setState({

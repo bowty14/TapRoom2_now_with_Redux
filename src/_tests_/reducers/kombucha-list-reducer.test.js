@@ -1,4 +1,4 @@
-import kombuchaListReducer from '../reducers/kombucha-List-Reducer';
+import kombuchaListReducer from '../../reducers/kombucha-List-Reducer';
 
 describe('kombuchaListReducer', () => {
 
