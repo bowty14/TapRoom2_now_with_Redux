@@ -93,7 +93,30 @@ describe('kombuchaListReducer', () => {
         brand: brand,
         price: price,
         flavor: flavor,
-        quantity: quantity -1,
+        quantity: quantity - 1,
+        id: id
+      }
+    });
+  });
+
+  test('Should reset keg value back to 124', () => {
+    const { name, brand, price, flavor, quantity, id } = kombuchaData;
+    action = {
+      type: c.TAP_KEG,
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      quantity: quantity,
+      id: id
+    };
+    expect(kombuchaListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brand: brand,
+        price: price,
+        flavor: flavor,
+        quantity: 124,
         id: id
       }
     })

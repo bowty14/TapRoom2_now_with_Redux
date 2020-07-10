@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 function Kombucha(props) {
   return (
     <React.Fragment>
-      <div onClick = {() => props.whenKombuchaClicked(props.id)}>
+      <div onClick={() => props.whenKombuchaClicked(props.id)}>
+        <div className='drinks'>
         <h3>{props.name} - {props.brand}</h3>
         <h3>{props.price}</h3>  
         <h3><em>{props.flavor}</em></h3>
-        <hr/>
+        </div>
       </div>
+      <footer>Red Currant <em>Kombucha Bar</em>, 5476 SE Taylor Ave, Portland OR, 97004</footer>
     </React.Fragment>
   );
 }

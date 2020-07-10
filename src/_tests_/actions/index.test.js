@@ -24,4 +24,27 @@ describe('TapRoom actions', () => {
     });
   });
 
+  it('pourPint should create a POUR_PINT action', () => {
+    expect(actions.pourPint({ name: 'Tropic Thunder', brand: 'Kombucha market', price: 6, flavor: 'Pineapple', quantity: 124, id: 1 })).toEqual({
+      type: "POUR_PINT",
+      name: 'Tropic Thunder',
+      brand: 'Kombucha market',
+      price: 6,
+      flavor: 'Pineapple',
+      quantity: 123,
+      id: 1
+    })
+  })
+  it('tapKeg should create a TAP_KEG action', () => {
+    expect(actions.tapKeg({ name: 'Tropic Thunder', brand: 'Kombucha market', price: 6, flavor: 'Pineapple', quantity: 0, id: 1 })).toEqual({
+      type: "TAP_KEG",
+      name: 'Tropic Thunder',
+      brand: 'Kombucha market',
+      price: 6,
+      flavor: 'Pineapple',
+      quantity: 124,
+      id: 1
+    })
+  })
+
 });

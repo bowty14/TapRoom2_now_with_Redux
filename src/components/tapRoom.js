@@ -78,13 +78,11 @@ class TapRoom extends React.Component {
     }
   }
 
-  handleTappingAKeg = (id) => {
-    const restockKombucha = this.state.masterKombuchaList[id];
-    restockKombucha.quantity = 124;
-    const editedMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== this.state.selectedKombucha.id).concat(restockKombucha);
-    this.setState({
-      masterKombuchaList: editedMasterKombuchaList
-    });
+  handleTappingAKeg = (kegToTap) => {
+    const { dispatch } = this.props;
+    const action = a.tapKeg(kegToTap);
+    dispatch(action);
+    this.setState({selectedKombucha: null})
   }
 
   render() {
@@ -95,7 +93,7 @@ class TapRoom extends React.Component {
       currentlyVisibleState = <EditKombuchaForm
         kombucha={this.state.selectedKombucha}
         onEditKombucha={this.handleEditingKombuchaInList} />
-      buttonText = 'Return to tap list';
+        buttonText = 'Return to tap list';
     } else if (this.state.selectedKombucha !== null) {
       currentlyVisibleState = <KombuchaDetail
         kombucha={this.state.selectedKombucha}
@@ -103,21 +101,21 @@ class TapRoom extends React.Component {
         onClickingEdit={this.handleEditClick}
         onClickingBuy={this.handleBuyingAPint}
         onClickingRestock={this.handleTappingAKeg} />
-      buttonText = 'Return to taproom';
+        buttonText = 'Return to taproom';
     } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewKombuchaForm
         onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
-      buttonText = 'Return to taproom';
+        buttonText = 'Return to taproom';
     } else {
       currentlyVisibleState = <KombuchaList
         kombuchaList={this.props.masterKombuchaList}
         onKombuchaSelection={this.handleChangingSelectedKombucha} />
-      buttonText = 'Add to tap'
+        buttonText = 'Add to tap'
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button className='allButtons' onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
