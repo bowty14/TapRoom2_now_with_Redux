@@ -1,3 +1,5 @@
+import * as c from './../actions/ActionTypes';
+
 export default (state = {}, action) => {
   const { name, brand, price, flavor, quantity, id } = action;
   switch (action.type) {
@@ -18,5 +20,17 @@ export default (state = {}, action) => {
       return newState;
     default:
       return state;
+    
+    case c.POUR_PINT:
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          brand: brand,
+          price: price,
+          flavor: flavor,
+          quantity: quantity - 1,
+          id: id
+        }
+      })
   }
 };

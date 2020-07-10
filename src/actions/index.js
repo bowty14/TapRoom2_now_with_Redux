@@ -19,3 +19,16 @@ export const addKombucha = (kombucha) => {
     id: id
   }
 }
+
+export const pourPint = (kombucha) => {
+  const { name, brand, price, flavor, quantity, id } = kombucha;
+  return {
+    type: 'POUR_PINT',
+    name: name,
+    brand: brand,
+    price: price,
+    flavor: flavor,
+    quantity: quantity,
+    id: id
+  }
+}

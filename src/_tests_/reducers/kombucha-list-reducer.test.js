@@ -1,4 +1,5 @@
 import kombuchaListReducer from '../../reducers/kombucha-List-Reducer';
+import * as c from '../../actions/ActionTypes';
 
 describe('kombuchaListReducer', () => {
 
@@ -75,6 +76,27 @@ describe('kombuchaListReducer', () => {
       }
     });
   });
-  
+  test('Should decrement a Kombucha quantity by 1', () => {
+    const { name, brand, price, flavor, quantity, id } = kombuchaData;
+    action = {
+      type: c.POUR_PINT,
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      quantity: quantity,
+      id: id
+    };
+    expect(kombuchaListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brand: brand,
+        price: price,
+        flavor: flavor,
+        quantity: quantity -1,
+        id: id
+      }
+    })
+  })
 
 });
