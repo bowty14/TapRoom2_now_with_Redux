@@ -1,4 +1,4 @@
-import kombuchaListReducer from '../../reducers/kombucha-List-Reducer';
+import kombuchaListReducer from '../reducers/kombucha-List-Reducer';
 
 describe('kombuchaListReducer', () => {
 
@@ -33,7 +33,30 @@ describe('kombuchaListReducer', () => {
   
   test('Should return default state if no action type is recognized', () => {
     expect(kombuchaListReducer({}, { type: null })).toEqual({});
-  })
+  });
+
+  test('Should successfully add a new kombucha to masterKombuchaList', () => {
+    const { name, brand, price, flavor, quantity, id } = kombuchaData;
+    action = {
+      type: 'ADD_KOMBUCHA',
+      name: name,
+      brand: brand,
+      price: price,
+      flavor: flavor,
+      quantity: quantity,
+      id: id
+    };
+    expect(kombuchaListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brand: brand,
+        price: price,
+        flavor: flavor,
+        quantity: quantity,
+        id: id
+      }
+    });
+  });
   
 
 })
